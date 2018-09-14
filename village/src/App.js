@@ -26,8 +26,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path='/newsmurf' component={SmurfForm} /> 
-        <Smurfs smurfs={this.state.smurfs} />
+        <header>
+          <h1>Welcome to the Smurf Village!</h1>
+          <h3>Please come in and visit the Smurfs here:</h3>
+          <Link to='/smurfs'>Smurf Village</Link>
+          <h3>Or if you would like to join the Smurfs village go here:</h3>
+          <Link to='/smurfform'>New Smurf</Link>
+        </header>
+
+        <Route path='/smurfform' component={SmurfForm} /> 
+        <Route path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
       </div>
     );
   }
