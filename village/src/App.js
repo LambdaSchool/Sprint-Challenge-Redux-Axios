@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Intro from './components/Intro'
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +20,11 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs', this.state.smurfs)
-    .then(response => this.setState({smurfs: response.data}))
+    .then(response => {
+      setTimeout(() => {
+        this.setState({smurfs: response.data})
+      }, 1000)
+    })
     .catch(err => console.log(err));
   }
 
@@ -27,15 +32,18 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <h1>Welcome to the Smurf Village!</h1>
-          <h3>Please come in and visit the Smurfs here:</h3>
-          <Link to='/smurfs'>Smurf Village</Link>
-          <h3>Or if you would like to join the Smurfs village go here:</h3>
-          <Link to='/smurfform'>New Smurf</Link>
+          <div className="navigation container">
+            <h4>Welcome to the Smurf Village!</h4>
+            <p>Please come in:</p>
+            <NavLink to='/'>Smurf Village</NavLink>
+            <p>Or join the Smurfs village:</p>
+            <NavLink to='/smurfform'>New Smurf</NavLink>
+          </div>
         </header>
-
-        <Route path='/smurfform' component={SmurfForm} /> 
-        <Route path='/smurfs' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <section className="main-content container">
+          {this.state.smurfs.length === 0 ? <Route exact path='/' component={Intro} />: <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />}
+          <Route path='/smurfform' component={SmurfForm} />
+        </section> 
       </div>
     );
   }

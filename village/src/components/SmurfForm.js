@@ -35,6 +35,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <h1>New Smurf</h1>
         <form onSubmit={this.addSmurf}>
           <input
             type="text"
