@@ -3,13 +3,12 @@
 }
 
 body {
-  background: #0FA8EB;
+  background: #0fa8eb;
 }
 
 html {
   font-size: 100%;
 }
-
 
 /* Appication */
 .App {
@@ -40,7 +39,7 @@ html {
 }
 
 .App header .navigation a:hover {
-  color: #0FA8EB;
+  color: #0fa8eb;
 }
 
 .App header .navigation .active {
@@ -114,7 +113,7 @@ html {
 }
 
 .SmurfForm form button {
-  background: #0FA8EB;
+  background: #0fa8eb;
   border: 1px solid black;
   border-radius: 3px;
   width: 40%;
