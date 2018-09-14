@@ -10,6 +10,8 @@ html {
   font-size: 100%;
 }
 
+
+/* Appication */
 .App {
   text-align: center;
 }
@@ -41,6 +43,10 @@ html {
   color: #0FA8EB;
 }
 
+.App header .navigation .active {
+  color: rgb(211, 102, 211);
+}
+
 .main-content {
   background: white;
   border-radius: 5px;
@@ -48,6 +54,7 @@ html {
   margin-top: 20px;
 }
 
+/* Smurfs */
 .Smurfs ul {
   padding: 0;
   display: flex;
@@ -59,15 +66,36 @@ html {
 }
 
 .Smurf {
+  position: relative;
   width: 30%;
   border: 1px solid gray;
   margin: 10px;
+  padding: 7px 2%;
 }
 
 .Smurf h3 {
   font-size: 1.5rem;
 }
 
+.Smurf button {
+  position: absolute;
+  background: white;
+  text-align: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  right: 4%;
+  top: 3px;
+  font-size: 1rem;
+  transition: 0.25s;
+}
+
+.Smurf button:hover {
+  color: red;
+}
+
+/* Smurf Form */
 .SmurfForm form {
   display: flex;
   flex-direction: column;
