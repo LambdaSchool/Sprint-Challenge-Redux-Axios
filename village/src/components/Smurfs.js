@@ -1,12 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Smurf from "./Smurf";
+import PropTypes from "prop-types";
 
-import Smurf from './Smurf';
+// ===========================
+// ==== STYLED COMPONENTS ====
+// ===========================
 
+const StyledH1 = styled.h1`
+  color: blue;
+  margin-top: -20px;
+  padding: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 30px;
+  border-bottom: 1px solid blue;
+  background: white;
+`;
+
+// ===========================
+// ====     COMPONENT     ====
+// ===========================
 class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <StyledH1>Smurf Village</StyledH1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
@@ -16,6 +36,7 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                deleteSmurf={this.props.deleteSmurf}
               />
             );
           })}
@@ -26,7 +47,12 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
+};
+
+Smurfs.propTypes = {
+  deleteSmurf: PropTypes.func.isRequired,
+  smurfs: PropTypes.array.isRequired
 };
 
 export default Smurfs;
