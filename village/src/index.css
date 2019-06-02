@@ -2,4 +2,78 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #e6faff;
+}
+
+.navigation {
+  height: 50px;
+  background-color: navy;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation p {
+  color: #e6faff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.homepage {
+  margin-top: 200px;
+}
+
+.Smurfs {
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+margin-top: 60px;
+}
+
+.Smurfs ul {
+  margin-right: 40px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.Smurfs .Smurf {
+  border: 1px black solid;
+  width: 250px;
+  margin-bottom: 50px;
+  background-color: lightblue;
+}
+
+.Smurfs .DeleteSmurf {
+  border: 1px black solid;
+  width: 250px;
+  margin-bottom: 50px;
+  background-color: lightblue;
+}
+
+.SmurfForm {
+  margin-top: 60px;
+}
+
+.SmurfForm form {
+  width: 15%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  height: 400px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.SmurfForm form input {
+  height: 30px;
+  font-size: 18px;
+}
+
+.SmurfForm form button {
+  width: 50%;
+  height: 30px;
+  background-color: navy;
+  color: white;
+  font-family: sans-serif;
 }

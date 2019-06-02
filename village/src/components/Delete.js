@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
-import Smurf from './Smurf';
+import DeleteSmurf from './DeleteSmurf';
+import axios from 'axios';
 
-class Smurfs extends Component {
+
+
+class Delete extends Component {
+
+  smurfDeleter(id) {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log(err));
+
+  }
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
+        <h1>Delete a smurf</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
+              <DeleteSmurf
                 name={smurf.name}
                 id={smurf.id}
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                smurfDeleter={this.smurfDeleter}
               />
             );
           })}
@@ -24,8 +35,8 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
+DeleteSmurf.defaultProps = {
  smurfs: [],
 };
 
-export default Smurfs;
+export default Delete;
