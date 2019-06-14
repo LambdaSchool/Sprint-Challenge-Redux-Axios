@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-
+import React, { Component, Fragment } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -10,13 +9,17 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <Fragment>
+                <Smurf
+                  name={smurf.name}
+                  id={smurf.id}
+                  age={smurf.age}
+                  height={smurf.height}
+                  key={smurf.id}
+                />
+                <button onClick={() => this.props.goToUpdateForm(smurf.id)}>Update</button>
+                <button onClick={() => this.props.deleteSmurf(smurf.id)}>Delete</button>
+              </Fragment>
             );
           })}
         </ul>
